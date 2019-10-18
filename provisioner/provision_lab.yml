@@ -1,6 +1,6 @@
 - name: Perform Checks to make sure this Playbook will complete successfully
-  hosts: localhost
-  connection: local
+  hosts: Ansible Provisioner 8.26.19
+  # connection: local
   become: no
   gather_facts: yes
   tasks:
