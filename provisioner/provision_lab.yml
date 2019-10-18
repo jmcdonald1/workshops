@@ -1,6 +1,6 @@
 - name: Perform Checks to make sure this Playbook will complete successfully
-  hosts: 3.91.151.99
-  # connection: local
+  hosts: localhost
+  connection: local
   become: no
   gather_facts: yes
   tasks:
@@ -94,8 +94,8 @@
           retries: 30
 
 - name: Create lab instances in AWS
-  hosts: 3.91.151.99
-  # connection: local
+  hosts: localhost
+  connection: local
   become: no
   gather_facts: no
   roles:
@@ -152,16 +152,16 @@
   import_playbook: "{{workshop_type}}.yml"
 
 - name: Alert the mothership
-  hosts: 3.91.151.99
-  # connection: local
+  hosts: localhost
+  connection: local
   become: no
   gather_facts: no
   tasks:
     - { include_role: {name: tower_request}, when: student_total > 9 }
 
 - name: print out information for instructor
-  hosts: 3.91.151.99
-  # connection: local
+  hosts: localhost
+  connection: local
   become: no
   gather_facts: no
   tasks:
